@@ -1,0 +1,2 @@
+# hust.fail
+my blog
