@@ -1,0 +1,68 @@
+---
+title: '[Advanced Statistics Notes]U-statistics'
+author: Chen Huang
+date: '2021-02-28'
+slug: advanced-statistics-notes-u-statistics
+categories:
+  - note
+tags: ["U-statistics", "Nonparametric statistics", "Mathematical Statistics"]
+output:
+  blogdown::html_page:
+    number_sections: true
+---
+# U-Statistics
+Let $X_1, \cdots,X_n\overset{iid}{\sim}P\in\mathcal{P}$.In a large class of problems, parameters to be estimated are of the form
+$$\theta = \mathbf{E}h(X_1, \cdots, X_m)$$
+with a fixed positive integer $m$, where $h:\mathcal{X}\rightarrow \mathbb{R}$ is  symmetric in its arguments and  satisfies $\mathbf{E}|h(X_{i_1}, \cdots, X_{i_m}|<\infty$ for any $P\in\mathcal{P}$.  
+A U-statistics with kernel $h$ of order $m$ is 
+$$
+U_n = \left(\begin{array}{c}n\\m\end{array}\right)^{-1}\sum_{c} h(X_{i_1},\cdots, X_{i_m}) 
+$$
+where $\sum_{c}$ denotes a summation over all m-subsets of $\{1,\cdots,n\}$. It is easy to see that it is an unbiased estimator of $\theta$.
+
+# Examples
+1. Let $m=1$ and $h(x) = x^k, k=1,2,\cdots$. $U_n$ becomes the *sample moments*:
+$$U_n = \frac{1}{n}\sum_{i=1}^nX_i^k$$
+2. Let $m=1$ and $h(x) = \mathbf{1}(x\leq t)$, we obtain the *empirical c.d.f*
+$$
+U_n = \frac{1}{n}\sum_{i=1}^n\mathbf{1}(X_i\leq t)
+$$
+is an unbiased estimator of $F(t)$.
+3. Consider the estimation of $\theta = \mu^m$, where $\mu = \mathbf{E}X_1$ and $m>1$ is an integer.Let
+$h(x_1,\cdots,x_m) = x_1\cdots x_n$, we obtain an unbiased estimator of $\mu^m$:
+$$U_{n}=\left(\begin{array}{c}
+n \\
+m
+\end{array}\right)^{-1} \sum_{c} X_{i_{1}} \cdots X_{i_{m}}$$
+4. Consider the  estimation of $\theta = \sigma^2=\mathbf{Var}(X_1)$.Let $h(x_1, x_2) = (x_1-x_2)^2/2$, we obtain the following U-statistics
+$$
+U_{n}=\frac{2}{n(n-1)} \sum_{1 \leq i<j \leq n} \frac{\left(X_{i}-X_{j}\right)^{2}}{2}=\frac{1}{n-1}\left(\sum_{i=1}^{n} X_{i}^{2}-n \bar{X}^{2}\right)=S^{2}
+$$
+which is the *sample variance*.
+5. Let $\theta = P(X_1+X_2)\leq t$, using the kernel $h(x_1,x_2)=\mathbf{1}(x_1+x_2)$, we obtain the following U-statistics
+$$U_{n}=\frac{2}{n(n-1)} \sum_{1 \leq i<j \leq n} I_{(-\infty, 0]}\left(X_{i}+X_{j}\right)$$
+which is the *one-sample Wilcoxon statistics*.
+
+# Variance of U-statistics
+If $E\left[h\left(X_{1}, \ldots, X_{m}\right)\right]^{2}<\infty$, then the variance of $U_n$ has an explicit form.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
